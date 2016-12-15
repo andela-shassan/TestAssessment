@@ -1,0 +1,7 @@
+<resources>
+    <string name="GENIUS_CLIENT_ID">pg4aK7h9h1cSnZ22rgHi5PsH1Itxy76ZInNkcUNv4IPcppHMCByZxfEpa7SI6kwh</string>
+    <string name="GENIUS_CLIENT_SECRET">qFfE8xy3Ji-5a3u0C2qkso8S99uqq4Bd1Ax6dlLtrhierH6oCW2skWet7VxvrvIIeMTrBNt7Ep8otl9V87XT9g</string>
+    <string name="GENIUS_CLIENT_TOKEN">Bearer k1R6nd4yEK50veQADHmZJ4zPJg_IeT63guCrxpxiNHu0P_l0OVHqIh9tzdMAVjG1</string>
+
+    <string name="app_name">TestAssessment</string>
+</resources>
