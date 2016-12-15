@@ -2,13 +2,16 @@ package www.nobestdev.com.testassessment;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import www.nobestdev.com.testassessment.adapter.SongAdapter;
 import www.nobestdev.com.testassessment.model.Song;
 import www.nobestdev.com.testassessment.model.SongsResponse;
 import www.nobestdev.com.testassessment.request.ApiClient;
@@ -32,8 +35,10 @@ public class HomeActivity extends AppCompatActivity {
             public void onResponse(Call<SongsResponse> call, Response<SongsResponse> response) {
                 int code = response.code();
                 if (code == 200) {
-                    List<Song> songs = response.body().getResponse().getSongs();
+                    ArrayList<Song> songs = response.body().getResponse().getSongs();
                     Log.d(TAG, "THE SIZE IF RETURNED SONGS = "+ songs.size());
+
+                    setUpView(songs);
                 }
             }
 
@@ -44,5 +49,13 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void setUpView(ArrayList<Song> songs) {
+        RecyclerView songList = (RecyclerView) findViewById(R.id.rv_song_list);
+        songList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        SongAdapter adapter = new SongAdapter(songs);
+        songList.setAdapter(adapter);
     }
 }
